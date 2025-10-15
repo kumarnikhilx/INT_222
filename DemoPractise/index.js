@@ -68,7 +68,28 @@ app.put("/update/:id",async (req,res) => {
     }
 
 })
+app.put("/update",async (req,res) => {
+    try {
+        const {name,age,email}=req.body;
+        
+        const user=await User.updateOne({email},{name,age,email},{new:true});
+        res.status(201).json({message:"user Updated"})
+    } catch (error) {
+        res.status(400).json({message:error.message});        
+    }
 
+})
+app.delete("/delete",async (req,res) => {
+    try {
+        const {userName}=req.body;
+
+        const user=await User.deleteOne({userName});
+        res.status(201).json({message:"user Deleted"})
+    } catch (error) {
+        res.status(400).json({message:error.message});
+    }
+
+})
 connectDb();
 app.listen(PORT, () => {
   console.log(`The server is running in http://localhost:${PORT}`);
