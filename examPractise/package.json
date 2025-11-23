@@ -98,7 +98,7 @@
     "wrappy": "^1.0.2"
   },
   "scripts": {
-    "dev": "nodemon guestBook/index.js"
+    "dev": "nodemon Middleware/validation.js"
   },
   "keywords": [],
   "author": "",
